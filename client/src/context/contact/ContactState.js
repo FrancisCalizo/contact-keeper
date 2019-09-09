@@ -51,10 +51,10 @@ const ContactState = props => {
   }
 
   // Delete Contact
-  const deleteContact = contact => {
+  const deleteContact = id => {
     dispatch({
       type: DELETE_CONTACT,
-      payload: contact
+      payload: id
     })
   }
 
