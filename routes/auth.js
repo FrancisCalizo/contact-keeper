@@ -24,7 +24,7 @@ router.get('/', auth, async (req, res) => {
 
 // @route   POST api/auth
 // @desc    Auth user and get token
-// @access  privtate
+// @access  private
 router.post(
   '/',
   // Express Validator to check Login-Credentials
