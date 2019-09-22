@@ -21,6 +21,7 @@ const Login = props => {
       clearErrors();
     }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({

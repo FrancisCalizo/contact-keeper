@@ -19,7 +19,7 @@ const Register = props => {
       setAlert(error, 'danger');
       clearErrors();
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({

@@ -37,7 +37,7 @@ router.post(
 
     try {
       // Mongoose method to find an email that mataches
-      let user = await User.findOne({ email: email });
+      let user = await User.findOne({ email: email.toLowerCase() });
 
       if (user) {
         return res.status(400).json({ msg: 'User already exists' });
