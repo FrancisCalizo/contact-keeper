@@ -15,7 +15,12 @@ app.use(express.json({ extended: false }));
 //   res.json({ msg: 'Welcome to the Contact Keeper API' })
 // );
 
-// Server Static Assets in Production
+// Define Routes
+app.use('/api/users', require('./routes/users'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/contacts', require('./routes/contacts'));
+
+// Server Static Assets in Production (Make sure this goes before the dynamic routes)
 if (process.env.NODE_ENV === 'production') {
   // Set Static Folder
   app.use(express.static('client/build'));
@@ -24,12 +29,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   );
 }
-
-// Define Routes
-app.use('/api/users', require('./routes/users'));
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/contacts', require('./routes/contacts'));
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
